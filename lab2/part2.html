@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 2: Intro to Three.js Part 2</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script 
+		src="../three.js-master/examples/js/loaders/GLTFLoader.js"></script>
+		<script>
+	      	var scene = new THREE.Scene();
+	      	var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+	      	var renderer = new THREE.WebGLRenderer();
+	      	renderer.setSize(window.innerWidth, window.innerHeight);
+	      	document.body.appendChild(renderer.domElement);
+	      	camera.position.z = 200;
+	      	var light = new THREE.PointLight(0xffffff, 1, 1000);
+			light.position.set(50, 50, 50);
+			scene.add(light);
+
+			var loader = new THREE.GLTFLoader();
+			loader.load('calla_lily_with_roses.glb', function (gltf) {
+				scene.add(gltf.scene);
+				gltf.scene.position.x = -50;
+				gltf.scene.rotation.y = -5;
+				gltf.scene.scale.x = 1.3;
+				gltf.scene.scale.y = 1.3;
+				gltf.scene.scale.z = 1.3;
+			}, 
+
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded' );
+			}, 
+			function (error) {
+				console.error(error);
+			});
+
+			function animate() {
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+			}
+			animate();
+
+			loader.load('cat.glb', function (gltf) {
+				scene.add(gltf.scene);
+				gltf.scene.position.x = 100;
+				gltf.scene.rotation.y = 20;
+				gltf.scene.scale.x = 3;
+				gltf.scene.scale.y = 6.3;
+				gltf.scene.scale.z = 1.3;
+			}, 
+			
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded' );
+			}, 
+			function (error) {
+				console.error(error);
+			});
+
+			function animate() {
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+			}
+			animate();
+
+			loader.load('rabbit.glb', function (gltf) {
+				scene.add(gltf.scene);
+				gltf.scene.position.x = 200;
+				gltf.scene.rotation.x = 270;
+				gltf.scene.scale.x = 4;
+				gltf.scene.scale.y = 5.3;
+				gltf.scene.scale.z = 1.3;
+			}, 
+			
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded' );
+			}, 
+			function (error) {
+				console.error(error);
+			});
+
+			function animate() {
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+			}
+			animate();
+
+
+
+
+
+		</script>
+	</body>
+</html>
