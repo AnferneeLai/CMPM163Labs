@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 2: Intro to Three.js Part 1</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera(75, 
+			window.innerWidth/window.innerHeight, 0.1, 1000);
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+
+			var geometry = new THREE.BoxGeometry();
+			var material = new THREE.MeshBasicMaterial( {color: 0xfacade} );
+			var cube = new THREE.Mesh(geometry, material);
+			scene.add(cube);
+
+			var geometry2 = new THREE.BoxGeometry();
+			var material2 = new THREE.MeshBasicMaterial( {color: 0xedacaf} );
+			var cube2 = new THREE.Mesh(geometry2, material2);
+			scene.add(cube2);
+
+			var geometry3 = new THREE.BoxGeometry();
+			var material3 = new THREE.MeshBasicMaterial( {color: 0xefefef} );
+			var cube3 = new THREE.Mesh(geometry3, material3);
+			scene.add(cube3);
+
+			camera.position.z = 5; //this moves the camera towards the viewer
+
+			function animate() {
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+				geometry.rotateX(0.01);
+				geometry.rotateY(0.01);
+				geometry2.rotateZ(0.05);
+				geometry2.translate(0.05, 0, -0.05);
+				geometry3.translate(0.01, 0.01, 0.01);
+			}
+			animate();
+
+			
+
+		</script>
+	</body>
+</html>
