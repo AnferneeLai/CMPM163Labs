@@ -10,27 +10,80 @@
 	</head>
 	<body>
 		<script src="../three.js-master/build/three.js"></script>
+
+		<script id="vertexShader" type="x-shader/x-vertex">
+			varying vec2 vUv;
+			void main() {
+			  vUv = uv;
+			  vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
+			  gl_Position = projectionMatrix * modelViewPosition;
+			}
+		</script>
+
+		<script id="fragmentShader" type="x-shader/x-fragment">
+			uniform sampler2D texture1;
+			varying vec2 vUv;
+			void main() {
+				if(vUv.x <= 0.5 && vUv.y < 0.5){
+			    	gl_FragColor = texture2D(texture1, 2.0*vUv);
+				}
+				else if(vUv.x <= 0.5 && vUv.y > 0.5){
+			    	gl_FragColor = texture2D(texture1, vec2(2.0*vUv.x, 2.0*vUv.y-1.0));
+				}
+				else if(vUv.x > 0.5 && vUv.y < 0.5){
+			    	gl_FragColor = texture2D(texture1, vec2(2.0*vUv.x-1.0, 2.0*vUv.y));
+				}
+				else if(vUv.x > 0.5 && vUv.y > 0.5){
+			    	gl_FragColor = texture2D(texture1, vec2(2.0*vUv.x-1.0, 2.0*vUv.y-1.0));
+				}
+
+				
+				
+
+			}
+		</script>
+
 		<script>
 
 			var geometry1, material1, mesh1;
+			var geometry2, material2, mesh2;
 
 			function addTextureShaderCube() {
 				if(count == 2) {
 					let uniforms = {
-			        	colorB: {type: 'vec3', value: new THREE.Color(0xACB6E5)},
-			        	colorA: {type: 'vec3', value: new THREE.Color(0x74ebd5)}
-	        		};
+						texture1: { type: "t", value: THREE.ImageUtils.loadTexture("171.jpg")}
+					};
 		
 		      		geometry1 = new THREE.BoxGeometry(1, 1, 1);
 		      		material1 =  new THREE.ShaderMaterial({
 		            	uniforms: uniforms,
-		      			fragmentShader: fshader,
-		              	vertexShader: vshader,
+						fragmentShader: fshader,
+              			vertexShader: vshader,
 		      			precision: "mediump"
 		      		});
 		      		mesh1 = new THREE.Mesh(geometry1, material1);
 		      		mesh1.position.x = 2;
 		      		scene.add(mesh1);
+	    		}
+			}
+
+			function addTextureShaderCube2() {
+				if(count == 2) {
+					let uniforms = {
+						texture1: { type: "t", value: THREE.ImageUtils.loadTexture("176.jpg")}
+					};
+		
+		      		geometry2 = new THREE.BoxGeometry(1, 1, 1);
+		      		material2 =  new THREE.ShaderMaterial({
+		            	uniforms: uniforms,
+		      			vertexShader: document.getElementById('vertexShader').textContent,
+						fragmentShader: document.getElementById('fragmentShader').textContent,
+		      			precision: "mediump"
+		      		});
+		      		mesh2 = new THREE.Mesh(geometry2, material2);
+		      		mesh2.position.x = 1;
+		      		mesh2.position.y = -2;
+		      		scene.add(mesh2);
 	    		}
 			}
 
@@ -48,6 +101,8 @@
       			vshader = data;
       			count += 1;
       			addTextureShaderCube(); // we will write this method
+      			addTextureShaderCube2(); // we will write this method
+
       		},
       		
       		// onProgress callback
@@ -68,6 +123,7 @@
       			fshader = data;
       			count += 1;
       			addTextureShaderCube(); // we will write this method
+      			addTextureShaderCube2(); // we will write this method
       		},
       		
       		// onProgress callback
@@ -121,7 +177,8 @@
 			function animate() {
 				requestAnimationFrame(animate);
 				renderer.render(scene, camera);
-				//	light.position.x++;
+				light.position.x += 0.25;
+				light.position.y += 0.25;
 			}
 			animate();
 
