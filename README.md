@@ -22,3 +22,6 @@ Cube 5: Made by using conditionals in the fragment shader to create four differe
 24b) y = 8 - 8u  
 24c) gray  
 
+# lab5  
+https://drive.google.com/file/d/1_z3Gs9Z0r2Bem8dsNrc4B6OsJmdYCdKO/view?usp=sharing
+In this lab, I chose to do part 1, the game in Unity. I changed the skybox color to be a bright blue instead of the original purple   color. I then changed the material of the checkpoints to be more metallic and orange instead of purple as well. I manipulated some of   the prefabs to create a giant tree in the middle of the track as well as some obstacles along the track as well. I created yellow   particles by creating a new material for the particle system and also changed the kart's color as well.
