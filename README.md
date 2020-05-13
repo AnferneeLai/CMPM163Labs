@@ -28,6 +28,7 @@ In this lab, I chose to do part 1, the game in Unity. I changed the skybox color
 
 # lab6
 https://drive.google.com/file/d/1c7lRileKtDSNFD5e1I42w8icMIM0qN1D/view?usp=sharing  
+![](lab6/bricks.jpg) ![](lab6/brickcapsule.png)  
 A point light is a light that is located in a point in space and emits light in all directions equally.  
 A spot light is a light with a range and specified location that emits light in a cone in a specific direction.  
 A directional light does not have a specific location and exists as a sort of sun light infinitely far away that emits light in a single direction.  
