@@ -39,3 +39,9 @@ The object I found in the real world was a brick wall. I created this material i
 In my lab, I have added two addition textured objects: a palm tree and a garbage can.  
 
 I have added a daytime skybox as well to my scene.
+
+# lab7
+https://drive.google.com/file/d/1cMSIEHiiNEbFAl1IZx_BmSNHNLp0LF4Y/view?usp=sharing  
+I made this scene by incorporating a customized mesh formed through a Unity shader graph. Within it I created a mountain terrain via the use of nodes inside the shader graph. To create the water waves, I coded a shader file that made use of a cosine function to imitate the motion of ocean waves. For finishing touches, I added trees, a light source, and some additional assets like a bike and character to flesh out the scene.  
+
+Unfortunately, I was unable to properly reach my partner, but I'm sure his project would have been interesting to look at and observe!
