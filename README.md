@@ -45,3 +45,9 @@ https://drive.google.com/file/d/1cMSIEHiiNEbFAl1IZx_BmSNHNLp0LF4Y/view?usp=shari
 I made this scene by incorporating a customized mesh formed through a Unity shader graph. Within it I created a mountain terrain via the use of nodes inside the shader graph. To create the water waves, I coded a shader file that made use of a cosine function to imitate the motion of ocean waves. For finishing touches, I added trees, a light source, and some additional assets like a bike and character to flesh out the scene.  
 
 Unfortunately, I was unable to properly reach my partner, but I'm sure his project would have been interesting to look at and observe!
+
+# lab8
+![](lab8/city.png) ![](lab8/sf.webp)  
+I was inspired by my hometown San Francisco and wanted to really capture the beauty of the night sky and the buildings at night. I made sure to add in the streets and familiar roads as well as some tiles textured with water.  
+  
+Unfortunately, I was unable to properly reach my partner, but I believe he also did well on his project!  
