@@ -51,3 +51,7 @@ Unfortunately, I was unable to properly reach my partner, but I'm sure his proje
 I was inspired by my hometown San Francisco and wanted to really capture the beauty of the night sky and the buildings at night. I made sure to add in the streets and familiar roads as well as some tiles textured with water.  
   
 Unfortunately, I was unable to properly reach my partner, but I believe he also did well on his project!  
+
+# lab9
+![](lab9/L-System-Tutorial.png) ![](lab9/L-System-Sierpinski.png)  
+The rule I used to create this L-System was based off of the Sierpinski Triangle one, but changed so that it used the Sierpiński arrowhead curve L-system instead. It makes use of A and B to draw forward, + to turn left, and - to turn right. Turns are conducted at a 60 degree angle each turn.  
